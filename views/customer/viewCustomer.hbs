@@ -1,0 +1,66 @@
+<div class="field has-addons is-horizontal">
+  <div class="field has-addons">
+    <div class="control">
+      <input class="input" type="text" placeholder="customerID or name">
+    </div>
+    <div class="control">
+      <a class="button is-info">
+        Search
+      </a>
+    </div>
+  </div>
+  <div class="field is-grouped">
+    <p class="control">
+      <a class="button is-link" href="/customer/add">
+        New customer
+      </a>
+    </p>
+    <p class="control">
+      <a class="button is-danger">
+        Deactivate
+      </a>
+    </p>
+  </div>
+</div>
+
+<div class="content">
+  <table>
+      <thead>
+        <tr>
+          <th>
+          <label class="checkbox">
+            <input type="checkbox">
+          </label>
+          </th>
+          <th>Name</th>
+          <th>Contact person</th>
+          <th>Telephone/email/line</th>
+          <th>Loyalty level</th>
+        </tr>
+      </thead>
+      <tbody>
+        {{#each customers }}
+        <tr>
+          <td>
+            <label class="checkbox">
+              <input type="checkbox">
+            </label>
+          </td>
+          <td><a href="/customer/edit?id={{this._id}}" title="paper name here">{{ this.name }}</td>
+          <td>{{ this.contactperson }}</td>
+          <td>
+            {{ this.tel_1 }}
+              {{#if this.tel_2 }}
+                ( {{ this.tel_2 }} )
+              {{/if }}
+             / {{ this.email }} / {{ this.other }}
+          </td>
+          <td> {{ this.loyalty }} </td>
+        </tr>
+        {{/each }}
+      </tbody>
+    </table>
+
+</div>
+
+

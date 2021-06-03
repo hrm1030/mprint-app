@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>mprint - view supplier</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.min.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.0.0/js/all.js"></script>
+  </head>
+  <body>
+
+
+    <section class="hero is-primary">
+      <div class="hero-body">
+        <div class="container">
+          <h1 class="title">
+            3) Cost accumulation
+          </h1>
+          <h2 class="subtitle">
+            Printing order no.: p0026 
+          </h2>
+        </div>
+      </div>
+      <div class="tabs is-centered">
+          <ul>
+            <li><a href="../order/viewOrder.html">Order</a></li>
+            <li class="is-active"><a href="../calcu/viewCalcu.html">Calculation</a></li>
+            <li><a href="../supplier/viewSupplier.html">Supplier</a></li>
+            <li><a href="../paper/viewPaper.html">Paper</a></li>
+            <li><a href="../provider/viewProvider.html">Provider</a></li>
+            <li><a href="../customer/viewCustomer.html">Customer</a></li>
+            </ul>
+          </div>
+    </section>
+<div class="tabs is-boxed">
+      <ul>
+        <li>
+          <a href="../calcu/printCal1.html">
+            <span>Overview</span>
+          </a>
+        </li>
+        <li>
+          <a href="../calcu/printCal2.html">
+            <span>Layout</span>
+          </a>
+        </li>
+        <li class="is-active">
+          <a href="../calcu/printCal3.html">
+            <span>Costing</span>
+          </a>
+        </li>
+        <li>
+          <a href="../calcu/printCal4.html">
+            <span>Summary</span>
+          </a>
+        </li>
+      </ul>
+</div>
+<section class="container is-fluid">
+    <div>Job size: W x L Unit: inch</div>
+    <div>Amount: 6000</div>
+    <div>Colour: 4/0</div>
+    <div>Paper type: Sticker</div>
+    
+    <div>Papper size: 34 x 35 inch</div>
+    <div>Cut: 2</div>
+    <div>Lay: 2</div>
+    <div>Total need: 3500 pc.</div>
+    <div>Expected amount: 6800</div>
+    <div>Spare: 500</div>
+    <div>Stock: 300</div>
+      
+<div class="content">
+<table>
+    <thead>
+      <tr>
+        <th>List no.</th>
+        <th>Cost description</th>
+        <th>Price</th>
+        <th>Price/ pc.</th>
+      </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>1</td>
+        <td>Paper cost</td>
+        <td>6700</td>
+        <td>1.56</td>
+    </tr>
+    <tr>
+        <td>2</td>
+        <td>Wage</td>
+        <td>3000</td>
+        <td>0</td>
+    </tr>
+    <tr>
+        <td>3</td>
+        <td>Coat</td>
+        <td>1500</td>
+        <td>0</td>
+    </tr>
+    <tr>
+        <td>4</td>
+        <td>Artwork</td>
+        <td>2500</td>
+        <td>0</td>
+    </tr>
+    <tr>
+        <td>5</td>
+        <td>etc</td>
+        <td>500</td>
+        <td>0</td>
+    </tr>
+    </tbody>
+    <thead>
+      <tr>
+        <th>Total</th>
+        <th>15200</th>
+        <th>@22.5</th>  
+      </tr>
+    </thead>
+  </table>
+
+</div>
+      
+<div class="columns">
+<div class="column">
+    <div class="field-label is-normal">
+        <label class="label">% Profit</label>
+        <input class="input" type="text" placeholder="cost1">
+    </div>
+</div>
+<div class="column">
+    <div class="field-label is-normal">
+        <label class="label">Suggest delivery</label>
+        <input class="input" type="text" placeholder="cost2">
+    </div>
+</div>
+<div class="column">
+    <div class="field-label is-normal">
+        <label class="label">Suggest quote</label>
+        <input class="input" type="text" placeholder="cost3">
+    </div>
+</div>
+<div class="column">
+    <div class="field-label is-normal">
+        <label class="label">Remarks</label>
+        <input class="input" type="text" placeholder="URGENT">
+    </div>
+</div>
+</div>
+
+      
+<a class="button" href="../calcu/viewCalcu.html">Save as a draft</a>
+<a class="button is-primary" href="../calcu/printCal4.html">Save and proceed</a>     
+</section>
+       
+
+<footer class="footer">
+  <div class="container">
+    <div class="content has-text-centered">
+      <p>
+        <strong>mprint app</strong> by Bella Thanaphorn Thongthian. The source code and website contents
+        are licensed.
+      </p>
+    </div>
+  </div>
+</footer>
+
+  </body>
+</html>

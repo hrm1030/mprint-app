@@ -1,0 +1,133 @@
+<section class="container is-fluid">
+{{#if customer }}
+<form action="/customer/update" method="POST">
+<input type="hidden" name="id" value="{{customer._id}}">
+{{else }}
+<form action="/customer/save" method="POST">
+{{/if }}
+  <div class="columns">
+    <div class="column">
+
+      <div class="field">
+        <label class="label">Customer name</label>
+        <div class="control">
+          {{#if customer.name }}
+          <input class="input" type="text" name="name" placeholder="Company name" value="{{customer.name}}" required>
+          {{else }}
+          <input class="input" type="text" name="name" placeholder="Company name" required>
+          {{/if }}
+        </div>
+      </div>
+
+      <div class="field">
+        <label class="label">Contact person</label>
+        <div class="control">
+          {{#if customer.contactperson }}
+          <input class="input" type="text" name="name" placeholder="Full Name" value="{{customer.contactperson}}" required>
+          {{else }}
+          <input class="input" type="text" placeholder="Full Name" name="contactperson" required>
+          {{/if }}
+        </div>
+      </div>
+
+      <div class="field">
+        <label class="label">Telephone</label>
+        <div class="control">
+          {{#if customer.tel_1 }}
+          <input class="input" type="text" placeholder="Tel 1" name="tel_1" value="{{customer.tel_1}}" required>
+          {{else }}
+          <input class="input" type="text" placeholder="Tel 1" name="tel_1" required>
+          {{/if }}
+          {{#if customer.tel_2 }}
+          <input class="input" type="text" placeholder="Tel 2" name="tel_2" value="{{customer.tel_2}}" required>
+          {{else }}
+          <input class="input" type="text" placeholder="Tel 2" name="tel_2" required>
+          {{/if }}
+        </div>
+      </div>
+
+      <div class="field">
+        <label class="label">Fax</label>
+        <div class="control">
+          {{#if customer.fax }}
+          <input class="input" type="text" placeholder="Fax number" name="fax" value="{{customer.fax}}" required>
+          {{else }}
+          <input class="input" type="text" placeholder="Fax number" name="fax" required>
+          {{/if }}
+        </div>
+      </div>
+
+      <div class="field">
+        <label class="label">Email</label>
+        <div class="control has-icons-left has-icons-right">
+          {{#if customer.email }}
+          <input class="input is-danger" type="email" placeholder="Email input" value="{{customer.email}}" name="email" required>
+          {{else }}
+          <input class="input is-danger" type="email" placeholder="Email input" value="hello@" name="email" required>
+          {{/if }}
+          <span class="icon is-small is-left">
+            <i class="fas fa-envelope"></i>
+          </span>
+          <span class="icon is-small is-right">
+            <i class="fas fa-exclamation-triangle"></i>
+          </span>
+        </div>
+        <p class="help is-danger">This email is invalid</p>
+      </div>
+    </div>
+
+    <div class="column">
+      <div class="field">
+        <label class="label">Address</label>
+        <div class="control">
+          <textarea class="textarea" placeholder="Address textarea" name="address" required>{{#if customer.address }}{{ customer.address }}{{/if }}</textarea>
+        </div>
+      </div>
+
+      <div class="field">
+        <label class="label">Other/ LINE ID/ remarks</label>
+        <div class="control">
+          <textarea class="textarea" placeholder="remarks" name="other">{{#if customer.other }}{{ customer.other }}{{/if }}</textarea>
+        </div>
+        </div>
+
+      <div class="field">
+        <label class="label">Customer loyalty</label>
+        <div class="control">
+          <div class="select">
+            <select name="loyalty">
+              <option value="newbie">Newbie</option>
+              <option value="reconnect">Reconnect</option>
+              <option value="unreliable">Unreliable</option>
+              <option value="highclass">High class</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <div class="field">
+      <div class="control">
+      <label class="radio">
+        <input type="radio" name="is_active" value="1">
+        Enable
+      </label>
+      <label class="radio">
+        <input type="radio" name="is_active" value="2">
+        Disable
+      </label>
+      </div>
+      </div>
+
+      <div class="field is-grouped is-grouped-right">
+        <div class="control">
+          <button class="button is-primary" type="submit"><i class="fa fa-paper-plane"></i> Submit</button>
+        </div>
+        <div class="control">
+          <button class="button is-danger" type="reset"><i class="fa fa-times"></i> Cancel</button>
+        </div>
+      </div>
+    </div>
+  
+  </div>
+</form>
+</section>
