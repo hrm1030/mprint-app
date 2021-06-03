@@ -1,7 +1,7 @@
 <section class="container is-fluid">
 {{#if customer }}
 <form action="/customer/update" method="POST">
-<input type="hidden" name="id" value="{{customer._id}}">
+<input type="hidden" name="customer_id" value="{{customer._id}}">
 {{else }}
 <form action="/customer/save" method="POST">
 {{/if }}
@@ -12,9 +12,9 @@
         <label class="label">Customer name</label>
         <div class="control">
           {{#if customer.name }}
-          <input class="input" type="text" name="name" placeholder="Company name" value="{{customer.name}}" required>
+          <input class="input" type="text" name="name" placeholder="Customer name" value="{{customer.name}}" required>
           {{else }}
-          <input class="input" type="text" name="name" placeholder="Company name" required>
+          <input class="input" type="text" name="name" placeholder="Customer name" required>
           {{/if }}
         </div>
       </div>
@@ -23,7 +23,7 @@
         <label class="label">Contact person</label>
         <div class="control">
           {{#if customer.contactperson }}
-          <input class="input" type="text" name="name" placeholder="Full Name" value="{{customer.contactperson}}" required>
+          <input class="input" type="text" name="contactperson" placeholder="Full Name" value="{{customer.contactperson}}" required>
           {{else }}
           <input class="input" type="text" placeholder="Full Name" name="contactperson" required>
           {{/if }}

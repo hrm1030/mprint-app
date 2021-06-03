@@ -50,7 +50,8 @@ exports.edit = function(req, res, next) {
 }
 
 exports.update = function(req, res, next) {
-    Customer.updateOne({_id:req.body.id}, {$set : {
+    console.log(req.body);
+    Customer.findByIdAndUpdate(req.body.customer_id, {$set : {
         name : req.body.name,
         contactperson : req.body.contactperson,
         tel_1 : req.body.tel_1,
