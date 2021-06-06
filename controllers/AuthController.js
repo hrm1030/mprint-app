@@ -49,7 +49,11 @@ exports.signin = function(req, res, next) {
             if (!passwordIsValid) {
                 res.render('login', {title : 'Login', err : 'Please enter your password exactly.'});
             } else {
-                var token = jwt.sign({ id: user._id }, config.secret, {
+                let payload = {
+                    id: user._id,
+                    email: user.email
+                };
+                var token = jwt.sign(payload, config.secret, {
                     expiresIn: 86400 // expires in 24 hours
                   });
                 req.session.authenticated = true;
@@ -62,4 +66,31 @@ exports.signin = function(req, res, next) {
             }
         }
       });
+}
+
+exports.reset = function(req, res) {
+    User.findOne({email : req.body.email}, (err, user) => {
+        if(err) {
+            console.log(err);
+        } else {
+            var result = [];
+            var characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%&*.';
+            var charactersLength = characters.length;
+            for ( var i = 0; i < 15; i++ ) {
+                result.push(characters.charAt(Math.floor(Math.random() * charactersLength)));
+            }
+            var new_password = result.join('');
+            var hashedPassword = bcrypt.hashSync(new_password, 8);
+            User.findOneAndUpdate({email : user.email}, {$set : {
+                password : hashedPassword
+            }}, (err) => {
+                if(err) {
+                    console.log(err);
+                } else {
+                    res.status(200).send({ user : user, new_password : new_password});
+                }
+            })
+            
+        }
+    })
 }
