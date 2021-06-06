@@ -1,0 +1,136 @@
+<section class="container is-fluid">
+  {{#if provider }}
+  <form action="/provider/update" method="POST" id="providerForm">
+  <input type="hidden" name="provider_id" value="{{provider._id}}">
+  {{else }}
+  <form action="/provider/save" id="providerForm" method="POST">
+  {{/if }}
+      <div class="columns">
+        <div class="column">
+  
+          <div class="field">
+            <label class="label">Provider name</label>
+            <div class="control">
+              {{#if provider.name  }}
+              <input class="input" type="text" name="provider" placeholder="Company name" id="provider" value="{{provider.name}}" required>
+              {{else }}
+              <input class="input" type="text" name="provider" placeholder="Company name" id="provider" required>
+              {{/if  }}
+            </div>
+          </div>
+  
+          <div class="field">
+            <label class="label">Contact person</label>
+            <div class="control">
+              {{#if provider.contactperson  }}
+              <input class="input" type="text" name="contactperson" id="contactperson" placeholder="full-name" value="{{provider.contactperson}}" required>
+              {{else }}
+              <input class="input" type="text" name="contactperson" id="contactperson" placeholder="full-name" required>
+              {{/if }}
+            </div>
+          </div>
+  
+          <div class="field">
+            <label class="label">Telephone</label>
+            <div class="control">
+              {{#if provider.tel_1 }}
+              <input class="input" type="number" placeholder="Tel 1" name="tel_1" id="tel_1" value="{{ provider.tel_1 }}" required>
+              {{else }}
+              <input class="input" type="number" placeholder="Tel 1" name="tel_1" id="tel_1" required>
+              {{/if }}
+              {{#if provider.tel_2 }}
+              <input class="input" type="number" placeholder="Tel 2" name="tel_2" id="tel_2" value="{{ provider.tel_2 }}" required>
+              {{else }}
+              <input class="input" type="number" placeholder="Tel 2" name="tel_2" id="tel_2" required>
+              {{/if }}
+            </div>
+          </div>
+  
+          <div class="field">
+            <label class="label">Fax</label>
+            <div class="control">
+              {{#if provider.fax }}
+              <input class="input" type="number" placeholder="Fax number" name="fax" id="fax" value="{{provider.fax}}" required>
+              {{else }}
+              <input class="input" type="number" placeholder="Fax number" name="fax" id="fax" required>
+              {{/if }}
+            </div>
+          </div>
+  
+          <div class="field">
+            <label class="label">Email</label>
+            <div class="control has-icons-left has-icons-right">
+              {{#if provider.email }}
+              <input class="input is-danger" type="email" placeholder="Email input" value="{{provider.email}}" name="email" id="email" required>
+              {{else }}
+              <input class="input is-danger" type="email" placeholder="Email input" value="hello@" name="email" id="email" required>
+              {{/if }}
+              <span class="icon is-small is-left">
+                <i class="fas fa-envelope"></i>
+              </span>
+              <span class="icon is-small is-right">
+                <i class="fas fa-exclamation-triangle"></i>
+              </span>
+            </div>
+            <p class="help is-danger">This email is invalid</p>
+          </div>
+        </div>
+  
+        <div class="column">
+              <div class="field">
+                <label class="label">Address</label>
+                <div class="control">
+                  <textarea class="textarea" placeholder="Address textarea" id="address" name="address" required>{{#if provider.address}}{{provider.address}}{{/if}}</textarea>
+                </div>
+              </div>
+  
+          <div class="field">
+            <label class="label">Other/ LINE ID/ remarks</label>
+            <div class="control">
+              <textarea class="textarea" placeholder="remarks" name="other" id="other" required>{{#if provider.other}}{{provider.other}}{{/if}}</textarea>
+            </div>
+            </div>
+  
+          <div class="field">
+            <label class="label">provider type</label>
+            <div class="control">
+              <div class="select">
+                <select id="provider_type" name="provider_type">
+                  <option value="Printing houser">Printing houser</option>
+                  <option value="Coat service">Coat service</option>
+                  <option value="Fold service">Fold service</option>
+                  <option value="3PL service">3PL service</option>
+                  <option value="etc.">etc.</option>
+                </select>
+              </div>
+            </div>
+          </div>
+  
+          <div class="field">
+          <div class="control">
+          <label class="radio">
+            <input type="radio" name="is_active" value="1">
+            Enable
+          </label>
+          <label class="radio">
+            <input type="radio" name="is_active" value="2">
+            Disable
+          </label>
+          </div>
+          </div>
+  
+          <div class="field is-grouped is-grouped-right">
+            <div class="control">
+              <button type="button" id="btn_save" class="button is-primary"><i class="fas fa-paper-plane"></i> Submit</button>
+            </div>
+            <div class="control">
+              <button class="button is-danger"><i class="fas fa-times"></i> Cancel</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+    
+  </section>
+  <script src="../../javascripts/pages/provider/add.js"></script>
+  

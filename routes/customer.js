@@ -9,4 +9,5 @@ router.get('/add', customer.add);
 router.post('/save', customer.save);
 router.get('/edit', customer.edit);
 router.post('/update', customer.update);
+router.post('/delete', customer.delete);
 module.exports = router;

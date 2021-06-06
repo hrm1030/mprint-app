@@ -70,3 +70,13 @@ exports.update = function(req, res, next) {
         }
     })
 }
+
+exports.delete = function(req, res) {
+    Customer.findByIdAndDelete(req.body.customer_id, (err)=>{
+        if(err) {
+            console.log(err);
+        } else {
+            res.json({msg:'success'});
+        }
+    })
+}

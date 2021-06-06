@@ -1,0 +1,76 @@
+<div class="field has-addons is-horizontal">
+  <div class="field has-addons">
+    <div class="control">
+      <input class="input" type="text" placeholder="providerID or name">
+    </div>
+    <div class="control">
+      <a class="button is-info">
+        Search
+      </a>
+    </div>
+  </div>
+  <div class="field is-grouped">
+    <p class="control">
+      <a class="button is-primary" href="/provider/add">
+        New provider
+      </a>
+    </p>
+    <p class="control">
+      <a class="button is-danger">
+        Deactivate
+      </a>
+    </p>
+  </div>
+</div>
+
+<div class="content">
+
+  <table id="provider_table">
+      <thead>
+        <tr>
+          <th>
+          <label class="checkbox">
+            <input type="checkbox">
+          </label>
+          </th>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Contact person</th>
+          <th>Telephone/email/line</th>
+          <th>Last updated by</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        {{#each providers  }}
+        <tr provider_id="{{this._id}}">
+          <td>
+            <label class="checkbox">
+              <input type="checkbox">
+            </label>
+          </td>
+          <td><a href="/provider/edit?id={{this._id}}" title="paper name here">{{ this.name }}</td>
+          <td>{{ this.provider_type }}</td>
+          <td>
+            {{ this.contactperson }}
+          </td>
+          <td>
+            {{ this.tel_1 }}
+              {{#if this.tel_2 }}
+                ( {{ this.tel_2 }} )
+              {{/if }}
+             / {{ this.email }} / {{ this.other }}
+          </td>
+          <td>
+            {{ this.updated_at }}
+          </td>
+          <td>
+            <button class="button is-small is-danger btn_delete" type="button"><i class="fa fa-trash"></i></button>
+          </td>
+        </tr>
+        {{/each  }}
+      </tbody>
+    </table>
+
+</div>
+<script src="../../javascripts/pages/provider/list.js"></script>

@@ -11,11 +11,10 @@ var session = require('express-session');
 var indexRouter = require('./routes/index');
 var authRouter = require('./routes/auth');
 var customerRouter = require('./routes/customer');
+var supplierRouter = require('./routes/supplier');
+var providerRoute = require('./routes/provider');
 /**End Router */
 
-/** Middleware */
-var auth = require('./middleware/auth');
-/** End Middleware */
 var app = express();
 
 /** MongoDB connect */
@@ -45,6 +44,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/auth', authRouter);
 app.use('/customer', customerRouter);
+app.use('/supplier', supplierRouter);
+app.use('/provider', providerRoute);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

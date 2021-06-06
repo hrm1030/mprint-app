@@ -11,7 +11,7 @@
   </div>
   <div class="field is-grouped">
     <p class="control">
-      <a class="button is-link" href="/customer/add">
+      <a class="button is-primary" href="/customer/add">
         New customer
       </a>
     </p>
@@ -24,7 +24,7 @@
 </div>
 
 <div class="content">
-  <table>
+  <table id="customer_table">
       <thead>
         <tr>
           <th>
@@ -36,11 +36,12 @@
           <th>Contact person</th>
           <th>Telephone/email/line</th>
           <th>Loyalty level</th>
+          <th></th>
         </tr>
       </thead>
       <tbody>
         {{#each customers }}
-        <tr>
+        <tr customer_id = "{{this._id}}">
           <td>
             <label class="checkbox">
               <input type="checkbox">
@@ -56,11 +57,14 @@
              / {{ this.email }} / {{ this.other }}
           </td>
           <td> {{ this.loyalty }} </td>
+          <td>
+            <button class="button is-small is-danger btn_delete" type="button"><i class="fa fa-trash"></i></button>
+          </td>
         </tr>
         {{/each }}
       </tbody>
     </table>
 
 </div>
-
+<script src="../../javascripts/pages/customer/view.js"></script>
 
