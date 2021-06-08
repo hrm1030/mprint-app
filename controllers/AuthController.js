@@ -69,6 +69,7 @@ exports.signin = function(req, res, next) {
 }
 
 exports.reset = function(req, res) {
+    console.log(req.body)
     User.findOne({email : req.body.email}, (err, user) => {
         if(err) {
             console.log(err);
@@ -87,10 +88,15 @@ exports.reset = function(req, res) {
                 if(err) {
                     console.log(err);
                 } else {
-                    res.status(200).send({ user : user, new_password : new_password});
+                    res.json({ user : user, new_password : new_password});
                 }
             })
             
         }
     })
+}
+
+exports.forgotpassword = function(req, res)
+{
+    res.render('forgetPassword',{layout : false});
 }

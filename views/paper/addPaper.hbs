@@ -1,0 +1,189 @@
+<section class="container is-fluid">
+  <form>
+    <div class="columns">
+      <div class="column">
+        <div class="field is-horizontal">
+          <div class="field-label is-normal">
+            <label class="label">Supplier name</label>
+          </div>
+          <div class="field-body">
+            <div class="field is-narrow">
+              <div class="control">
+                <div class="select">
+                  <select name="supplier" id="supplier">
+                    {{#each suppliers }}
+                    <option value="{{this._id}}">{{this.name}}</option>
+                    {{/each }}
+                  </select>
+                </div>
+              </div>
+            </div>
+            <a class="button" href="/supplier/add">New supplier</a>
+          </div>
+        </div>
+
+        <div class="field is-horizontal">
+          <div class="field-label is-normal">
+            <label class="label">Paper Type</label>
+          </div>
+          <div class="field-body">
+            <div class="field is-narrow">
+            <div class="control">
+              <div class="select">
+                <select id="paper_type">
+                  {{#each papertypes }}
+                  <option value="{{this._id}}">{{this.type_name}}</option>
+                  {{/each }}
+                </select>
+              </div>
+            </div>
+            </div>
+            <a class="button" href="/paper/add_paper_type">New paper type</a>
+          </div>
+        </div>
+
+        <div class="field is-horizontal">
+          <div class="field-label is-normal">
+            <label class="label">Paper size</label>
+          </div>
+          <div class="field-body">
+            <div class="field is-narrow">
+              <div class="control">
+                <div class="select">
+                  <select id="papersize">
+                    {{#each papersizes }}
+                    <option value="{{this.size}}">{{this.size}}</option>
+                    {{/each }}
+                  </select>
+                </div>
+              </div>
+            </div>
+          </div> 
+        </div>
+
+        <div class="field is-horizontal">
+          <div class="field-label is-normal">
+            <label class="label">Gram</label>
+          </div>
+          <div class="field-body">
+            <div class="field is-narrow">
+              <div class="control">
+                <div class="select">
+                  <select id="gram">
+                    {{#each grams }}
+                    <option value="{{this.gram}}">{{this.gram}}</option>
+                    {{/each }}
+                  </select>
+                </div>
+              </div>
+            </div>
+          </div> 
+        </div>  
+          
+        <div class="field is-horizontal">
+          <div class="field-label is-normal">
+            <label class="label">Brand</label>
+          </div>
+          <div class="field-body">
+            <div class="field">
+              <p class="control is-expanded has-icons-left">
+                {{#if paper.brand }}
+                <input class="input" type="text" id="brand" placeholder="Brand" value="{{paper.brand}}">
+                {{else }}
+                <input class="input" type="text" id="brand" placeholder="Brand">
+                {{/if }}
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="field is-horizontal">
+          <div class="field-label is-normal">
+            <label class="label">Amount/ pack</label>
+          </div>
+          <div class="field-body">
+            <div class="field">
+              <p class="control is-expanded has-icons-left">
+                {{#if paper.amount_per_pack }}
+                <input class="input" type="text" id="amount_per_pack" placeholder="Amount/ pack" value="{{paper.amount_per_pack}}">
+                {{else }}
+                <input class="input" type="text" id="amount_per_pack" placeholder="Amount/ pack">
+                {{/if }}
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="field is-horizontal">
+          <div class="field-label is-normal">
+            <label class="label">Price/ ream</label>
+          </div>
+          <div class="field-body">
+            <div class="field">
+              <p class="control is-expanded has-icons-left">
+                {{#if paper.price_per_ream }}
+                <input class="input" type="text" id="price_per_ream" placeholder="Price/ ream" value="{{paper.price_per_ream}}">
+                {{else }}
+                <input class="input" type="text" id="price_per_ream" placeholder="Price/ ream">
+                {{/if }}
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="field is-horizontal">
+          <div class="field-label is-normal">
+            <label class="label">Price/ Kg.</label>
+          </div>
+          <div class="field-body">
+            <div class="field">
+              <p class="control is-expanded has-icons-left">
+                {{#if paper.price_per_kg }}
+                <input class="input" type="text" id="price_per_kg" placeholder="Price / Kg" value="{{paper.price_per_kg}}">
+                {{else }}
+                <input class="input" type="text" id="price_per_kg" placeholder="Price / Kg">
+                {{/if }}
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="field is-horizontal">
+          <div class="field-label is-normal">
+            <label class="label">Price/ sheet</label>
+          </div>
+          <div class="field-body">
+            <div class="field">
+              <p class="control is-expanded has-icons-left">
+                {{#if paper.price_per_sheet }}
+                <input class="input" type="text" id="price_per_sheet" placeholder="Price / sheet" value="{{paper.price_per_sheet}}">
+                {{else }}
+                <input class="input" type="text" id="price_per_sheet" placeholder="Price / sheet">
+                {{/if }}
+              </p>
+            </div>
+          </div>
+        </div>
+        {{#if paper.unit }}
+        <input type="hidden" id="unit" value="{{paper.unit}}">
+        {{else }}
+        <input type="hidden" id="unit">
+        {{/if }}
+        {{#if paper._id }}
+        <input type="hidden" id="paper_id" value="{{paper._id}}">
+        {{else }}
+        <input type="hidden" id="paper_id">
+        {{/if }}
+        <div class="field is-grouped is-grouped-right">
+          <div class="control">
+            <button class="button is-primary" type="button" id="btn_save"><i class="fas fa-paper-plane"></i> Submit</button>
+          </div>
+          <div class="control">
+            <button class="button is-danger" type="reset">Cancel</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+</section>
+<script src="../../javascripts/pages/paper/add_paper.js"></script>

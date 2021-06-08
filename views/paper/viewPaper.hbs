@@ -1,0 +1,70 @@
+<section class="container is-fluid">
+  <div class="field has-addons is-horizontal">
+    <div class="field has-addons">
+      <div class="control">
+        <input class="input" type="text" placeholder="PaperID or supplierID">
+      </div>
+      <div class="control">
+        <a class="button is-info">
+          Search
+        </a>
+      </div>
+    </div>
+    <div class="field is-grouped">
+      <p class="control">
+        <a class="button is-link" href="/paper/add">
+          New paper
+        </a>
+      </p>
+      <p class="control">
+        <a class="button is-danger">
+          Remove
+        </a>
+      </p>
+    </div>
+  </div>
+
+  <div class="content">
+  <table id="paper_table">
+      <thead>
+        <tr>
+  <th>
+  <label class="checkbox">
+    <input type="checkbox">
+  </label>
+  </th>
+          <th>Paper type</th>
+          <th>Size</th>
+          <th>Unit</th>
+          <th>Gram</th>
+          <th>Price per Pack/ sheet/ kg</th>
+          <th>Supplier</th>
+          <th>Last retrived by</th>
+          <td></td>
+        </tr>
+      </thead>
+      <tbody>
+        {{#each papers }}
+        <tr>
+          <td>
+            <label class="checkbox">
+              <input type="checkbox">
+            </label>
+          </td>
+          <td><a href="/paper/edit?id={{ this._id }}" title="paper name here">{{ this.type_name  }}</td>
+          <td>{{this.paper_size}}</td>
+          <td>{{this.unit}}</td>
+          <td>{{this.gram}}</td>
+          <td>{{this.amount_per_pack}} / {{this.price_per_sheet}} / {{this.price_per_kg}}</td>
+          <td>{{this.suppliername}}</td>
+          <td>{{this.updated_at}}</td>
+          <td><button class="button is-danger btn_delete is-small" paper_id="{{this._id}}"><i class="fas fa-trash"></i></button></td>
+        </tr>
+        {{/each }}
+      </tbody>
+    </table>
+
+  </div>
+</section>
+
+<script src="../../javascripts/pages/paper/list.js"></script>

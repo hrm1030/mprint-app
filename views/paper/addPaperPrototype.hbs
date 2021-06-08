@@ -1,0 +1,121 @@
+<form>
+  <section class="container is-fluid">
+    <div class="columns">
+
+      <div class="column">
+
+        <div class="field is-horizontal">
+          <div class="field-label is-normal">
+            <label class="label">Paper type or name</label>
+          </div>
+          <div class="field-body">
+            <div class="field-label">
+              <div class="control">
+                <input class="input" type="text" placeholder="name" id="paper_type" name="name">
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="field is-horizontal">
+          <div class="field-label is-normal">
+            <label class="label">Size W</label>
+          </div>
+          <div class="field-body">
+            <div class="field">
+              <p class="control is-expanded has-icons-left">
+                <input class="input" type="number" id="width" placeholder="w" name="w">
+              </p>
+            </div>
+          </div>
+          <div class="field-label is-normal">
+            <label class="label">x H</label>
+          </div>
+          <div class="field-body">
+            <div class="field">
+              <p class="control is-expanded has-icons-left">
+                <input class="input" type="number" id="height" placeholder="h" name="h">
+              </p>
+            </div>
+          </div>
+          <div class="field">
+            <div class="control">
+              <label class="radio">
+                <input type="radio" id="unit" name="unit" placeholder="unit" value="inch">
+                inch
+              </label>
+              <label class="radio">
+                <input type="radio" id="unit" name="unit" placeholder="unit" value="cm">
+                cm
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <button type="button" class="button" id="size_1">22x34</button>
+        <button type="button" class="button" id="size_2">24x34</button>
+        <button type="button" class="button" id="size_3">24x35</button>
+        <button type="button" class="button" id="size_4">27x34</button>
+        <button type="button" class="button" id="size_5">31x43</button>
+
+        <div class="field-label is-normal">
+          <label class="label">Gram</label>
+        </div>
+        <div class="field-body">
+          <div class="field">
+            <p class="control is-expanded has-icons-left">
+              <input class="input" type="number" placeholder="gram" id="gram" name="gram">
+            </p>
+          </div>
+        </div>
+
+        <button type="button" class="button" id="gram_1">60</button>
+        <button type="button" class="button" id="gram_2">70</button>
+        <button type="button" class="button" id="gram_3">100</button>
+        <button type="button" class="button" id="gram_4">120</button>
+        <button type="button" class="button" id="gram_5">200</button>
+        <button type="button" class="button" id="gram_6">500</button>
+
+        <div class="field is-grouped is-grouped-left">
+          <div class="control">
+            <button type="button" id="btn_save" class="button is-primary"><i class="fas fa-save"></i> Save prototype</button>
+          </div>
+          <div class="control">
+            <button  type="reset" class="button is-danger">Cancel</button>
+          </div>
+        </div>
+
+
+      </div>
+
+      <div class="column">
+
+        <div class="content">
+
+          <table class="table is-stripped" id="papertype_table">
+            <thead>
+              <tr>
+                <th>Type</th>
+                <th>Size ( inch / cm )</th>
+                <th>Gram</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              {{#each papertypes }}
+              <tr>
+                <td>{{this.type_name}}</td>
+                <td>{{this.width}} * {{this.height}} ( {{ this.unit }} )</td>
+                <td>{{this.gram}}</td>
+                <td><button type="button" type_id="{{this._id}}" class="button is-danger btn_delete is-small"><i class="fas fa-trash"></i></button></td>
+              </tr>
+              {{/each }}
+            </tbody>
+          </table>
+
+        </div>
+      </div>
+    </div>
+  </section>
+</form>
+<script src="../../javascripts/pages/paper/addpapertype.js"></script>

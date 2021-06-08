@@ -13,6 +13,7 @@ var authRouter = require('./routes/auth');
 var customerRouter = require('./routes/customer');
 var supplierRouter = require('./routes/supplier');
 var providerRoute = require('./routes/provider');
+var paperRoute = require('./routes/paper');
 /**End Router */
 
 var app = express();
@@ -46,6 +47,7 @@ app.use('/auth', authRouter);
 app.use('/customer', customerRouter);
 app.use('/supplier', supplierRouter);
 app.use('/provider', providerRoute);
+app.use('/paper', paperRoute);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -65,6 +67,6 @@ app.use(function(err, req, res, next) {
 
 app.listen(8080, function() {
   console.log(`This app is running on localhost:8080`);
-})
+});
 
 module.exports = app;
